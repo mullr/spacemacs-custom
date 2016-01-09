@@ -357,6 +357,8 @@ Content-Type: application/json
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
  '(ring-bell-function (quote ignore) t)
+ '(split-height-threshold 100)
+ '(split-window-preferred-function (quote split-window-sensibly))
  '(vc-follow-symlinks (quote ask)))
 
 (custom-set-faces
