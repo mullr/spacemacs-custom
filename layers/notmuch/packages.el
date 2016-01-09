@@ -31,10 +31,23 @@
     :commands notmuch
     :init (evil-leader/set-key "an" 'notmuch)
     :config (progn
-              (evilify notmuch-hello-mode notmuch-hello-mode-map)
+              ;; Fix helm
+              ;; See id:m2vbonxkum.fsf@guru.guru-group.fi
+              (setq notmuch-address-selection-function
+                    (lambda (prompt collection initial-input)
+                      (completing-read prompt (cons initial-input collection) nil t nil 'notmuch-address-history)))
+
+              (evilify notmuch-hello-mode notmuch-hello-mode-map
+                       (kbd "C-j") 'widget-forward
+                       (kbd "C-k") 'widget-backward
+                       )
+              (evilify notmuch-show-mode notmuch-show-stash-map)
+              (evilify notmuch-show-mode notmuch-show-part-map)
+              (evilify notmuch-show-mode notmuch-show-mode-map
+                       (kbd "N") 'notmuch-show-next-message
+                       (kbd "n") 'notmuch-show-next-open-message)
               (evilify notmuch-tree-mode notmuch-tree-mode-map)
               (evilify notmuch-search-mode notmuch-search-mode-map)
-              (evilify notmuch-show-mode notmuch-show-mode-map)
               )
     ;; :init (tabbar-mode)
     ;; :bind (("C-<tab>" . tabbar-forward-tab)
