@@ -14,7 +14,7 @@
 ;; which require an initialization must be listed explicitly in the list.
 (setq my-perspectives-packages
       '(
-      ;; package names go here
+        persp-mode
       ))
 
 ;; List of packages to exclude.
@@ -29,3 +29,44 @@
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
 ;; https://github.com/jwiegley/use-package
+
+
+(defun my-perspectives/post-init-persp-mode ()
+  "Initialize custom perspectives"
+  (spacemacs|define-custom-layout "puppetdb"
+    :binding "p"
+    :body
+    (find-file "~/devel/puppetdb/project.clj"))
+
+  (spacemacs|define-custom-layout "puppetdb"
+    :binding "x"
+    :body
+    (find-file "~/devel/pe-puppetdb-extensions/project.clj"))
+
+  (setq org-default-notes-file "~/Dropbox/notes/notes.org")
+
+  (spacemacs|define-custom-layout "notes"
+    :binding "n"
+    :body
+    (find-file org-default-notes-file))
+
+
+  (defvar persp-before-notes nil)
+  (global-set-key (kbd "<f12>")
+                  (lambda ()
+                    (interactive)
+                    (let* ((curr-persp (get-frame-persp))
+                           (curr-persp-name (if curr-persp
+                                                (persp-name curr-persp)
+                                              "Default")))
+                      (if (and curr-persp-name (string= "notes" curr-persp-name))
+                          (persp-switch persp-before-notes)
+                        (progn
+                          (setq persp-before-notes curr-persp-name)
+                          (spacemacs/custom-perspective-notes))))))
+
+
+  )
+
+
+
