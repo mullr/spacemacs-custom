@@ -260,6 +260,8 @@ layers configuration. You are free to put any user code."
      (clojure . t)
      (scheme . t)
      (gnuplot . t)
+     (octave . t)
+     (restclient . t)
      (sh . t)
      (sql . t))))
  '(org-babel-tangle-lang-exts
