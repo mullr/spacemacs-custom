@@ -277,7 +277,27 @@ layers configuration. You are free to put any user code."
  '(org-src-tab-acts-natively t)
  '(org-structure-template-alist
    (quote
-    (("ss" "#+BEGIN_SRC scheme :session \"?\"
+    (("sr" "#+BEGIN_SRC restclient
+?
+#+END_SRC" "<src lang=\"restclient\">
+?
+</src>")
+     ("pdb" "#+BEGIN_SRC restclient
+POST http://localhost:8080/pdb/query/v4/?
+Content-Type: application/json
+
+{
+  \"query\": []
+}
+#+END_SRC" "<src lang=\"restclient\">
+POST http://localhost:8080/pdb/query/v4/?
+Content-Type: application/json
+
+{
+  \"query\": []
+}
+</src>")
+     ("ss" "#+BEGIN_SRC scheme :session \"?\"
 
 #+END_SRC" "<src lang=\"scheme\" session=\"?\">
 
