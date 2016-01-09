@@ -259,6 +259,9 @@ layers configuration. You are free to put any user code."
  '(notmuch-search-oldest-first nil)
  '(notmuch-show-mark-read-tags (quote ("")))
  '(notmuch-show-max-text-part-size 100000)
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/notes/puppet-calendar.org" "~/Dropbox/notes/notes.org")))
  '(org-babel-load-languages
    (quote
     ((emacs-lisp . t)
