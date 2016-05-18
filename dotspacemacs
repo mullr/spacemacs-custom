@@ -258,6 +258,7 @@ layers configuration. You are free to put any user code."
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
  '(geiser-default-implementation (quote guile))
+ '(magit-diff-arguments (quote ("--ignore-all-space" "--no-ext-diff" "--stat")))
  '(notmuch-archive-tags (quote ("")))
  '(notmuch-search-oldest-first nil)
  '(notmuch-show-mark-read-tags (quote ("")))
