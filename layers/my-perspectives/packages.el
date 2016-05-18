@@ -38,7 +38,7 @@
     :body
     (find-file "~/devel/puppetdb/project.clj"))
 
-  (spacemacs|define-custom-layout "puppetdb"
+  (spacemacs|define-custom-layout "pe-puppetdb-extensions"
     :binding "x"
     :body
     (find-file "~/devel/pe-puppetdb-extensions/project.clj"))
