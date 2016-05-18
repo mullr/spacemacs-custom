@@ -260,8 +260,16 @@ layers configuration. You are free to put any user code."
  '(geiser-default-implementation (quote guile))
  '(magit-diff-arguments (quote ("--ignore-all-space" "--no-ext-diff" "--stat")))
  '(notmuch-archive-tags (quote ("")))
+ '(notmuch-saved-searches
+   (quote
+    ((:name "inbox" :query "tag:inbox" :key "i" :search-type tree)
+     (:name "unread" :query "tag:unread" :key "u" :search-type tree)
+     (:name "flagged" :query "tag:flagged" :key "f" :search-type tree)
+     (:name "sent" :query "tag:sent" :key "t")
+     (:name "drafts" :query "tag:draft" :key "d")
+     (:name "all mail" :query "*" :key "a"))))
  '(notmuch-search-oldest-first nil)
- '(notmuch-show-mark-read-tags (quote ("")))
+ '(notmuch-show-mark-read-tags nil)
  '(notmuch-show-max-text-part-size 100000)
  '(org-agenda-files
    (quote
