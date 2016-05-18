@@ -55,6 +55,7 @@ values."
      c-c++
      elixir
      gtags
+     yaml
 
      tabbar
      jira-link
