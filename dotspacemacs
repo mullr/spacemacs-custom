@@ -26,7 +26,10 @@ values."
      auto-completion
      better-defaults
      emacs-lisp
-     (git :variables git-gutter-use-fringe t)
+     (version-control :variables
+                      version-control-diff-tool 'git-gutter+
+                      version-control-global-margin t)
+     git
      markdown
      (org :variables org-enable-github-support t)
      ;; (shell :variables
@@ -34,7 +37,6 @@ values."
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     version-control
      eyebrowse
 
      clojure
