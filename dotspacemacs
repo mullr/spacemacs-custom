@@ -38,6 +38,7 @@ values."
      spell-checking
      syntax-checking
      eyebrowse
+     command-log
 
      clojure
      github
