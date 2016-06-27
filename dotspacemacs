@@ -277,9 +277,12 @@ layers configuration. You are free to put any user code."
  '(org-agenda-files
    (quote
     ("~/Dropbox/notes/puppet-calendar.org" "~/Dropbox/notes/notes.org")))
+ '(org-babel-clojure-backend (quote cider))
  '(org-babel-load-languages
    (quote
     ((emacs-lisp . t)
+     (ditaa . t)
+     (dot . t)
      (clojure . t)
      (scheme . t)
      (gnuplot . t)
@@ -300,6 +303,8 @@ layers configuration. You are free to put any user code."
      ("emacs-lisp" . "el")
      ("scheme" . "rkt"))))
  '(org-confirm-babel-evaluate nil)
+ '(org-ditaa-eps-jar-path "/home/mullr/local/DitaaEps/DitaaEps.jar")
+ '(org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
  '(org-src-fontify-natively t)
  '(org-src-tab-acts-natively t)
  '(org-structure-template-alist
