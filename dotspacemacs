@@ -57,6 +57,7 @@ values."
      elixir
      gtags
      yaml
+     haskell
 
      tabbar
      jira-link
