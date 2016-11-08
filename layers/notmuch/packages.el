@@ -35,7 +35,7 @@
 (defun notmuch/inbox ()
   (interactive)
   (require 'notmuch)
-  (notmuch-tree "is:unread")
+  (notmuch-tree "tag:inbox")
   (bind-map-change-major-mode-after-body-hook))
 
 (defun notmuch/tree-show-message ()
@@ -63,13 +63,18 @@
               "t+" 'notmuch-tree-add-tag
               "t-" 'notmuch-tree-remove-tag
               "r" 'notmuch-tree-refresh-view
-              "a" 'notmuch-tree-archive-message-then-next
-              "a" 'notmuch-tree-archive-thread
+              ;; "d" 'notmuch-tree-archive-message-then-next
+              ;; "A" 'notmuch-tree-archive-thread
               "g" 'notmuch-poll-and-refresh-this-buffer
               "s" 'notmuch-search-from-tree-current-query
               "c" 'notmuch-show-stash-map
               "m" 'notmuch-mua-new-mail
               "w" 'notmuch-show-save-attachments)
+
+            (spacemacs/set-leader-keys-for-minor-mode 'notmuch-message-mode
+              "," 'notmuch-mua-send-and-exit
+              "k" 'message-kill-buffer)
+
             )
 
     :config (progn
@@ -82,7 +87,10 @@
               (evilified-state-evilify-map notmuch-search-mode-map
                 :mode notmuch-search-mode
                 :bindings
-                (kbd "q") 'notmuch-search-quit)
+                (kbd "q") 'notmuch-search-quit
+                (kbd "r") 'notmuch-search-reply-to-thread
+                (kbd "R") 'notmuch-search-reply-to-thread-sender
+                )
 
               (evilified-state-evilify-map notmuch-show-mode-map
                 :mode notmuch-show-mode)
@@ -102,6 +110,7 @@
               ;;          )
               ;; (evilify notmuch-show-mode notmuch-show-stash-map)
               ;; (evilify notmuch-show-mode notmuch-show-part-map)
+
               ;; (evilify notmuch-show-mode notmuch-show-mode-map
               ;;          (kbd "N") 'notmuch-show-next-message
               ;;          (kbd "n") 'notmuch-show-next-open-message)
